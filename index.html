@@ -35,48 +35,7 @@
     --cta-ink:#FFF8F3;
     --shadow: 0 24px 48px -28px rgba(43,20,50,.35);
     --shadow-sm: 0 10px 24px -16px rgba(43,20,50,.28);
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#1C1420;
-      --paper-alt:#241A29;
-      --card:#2A1F30;
-      --ink:#F5EBF3;
-      --ink-soft:#CBBAC9;
-      --ink-faint:#96849A;
-      --line:rgba(245,235,243,.14);
-      --orchid:#D48CE6;
-      --orchid-deep:#E7A9F2;
-      --orchid-soft:rgba(212,140,230,.14);
-      --jade:#3FE0B0;
-      --jade-bright:#54E8BC;
-      --jade-soft:rgba(63,224,176,.14);
-      --cta:#F0835A;
-      --cta-hover:#F6996F;
-      --cta-ink:#221115;
-      --shadow: 0 24px 48px -28px rgba(0,0,0,.6);
-      --shadow-sm: 0 10px 24px -16px rgba(0,0,0,.5);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#1C1420;
-    --paper-alt:#241A29;
-    --card:#2A1F30;
-    --ink:#F5EBF3;
-    --ink-soft:#CBBAC9;
-    --ink-faint:#96849A;
-    --line:rgba(245,235,243,.14);
-    --orchid:#D48CE6;
-    --orchid-deep:#E7A9F2;
-    --orchid-soft:rgba(212,140,230,.14);
-    --jade:#3FE0B0;
-    --jade-bright:#54E8BC;
-    --jade-soft:rgba(63,224,176,.14);
-    --cta:#F0835A;
-    --cta-hover:#F6996F;
-    --cta-ink:#221115;
-    --shadow: 0 24px 48px -28px rgba(0,0,0,.6);
-    --shadow-sm: 0 10px 24px -16px rgba(0,0,0,.5);
+    color-scheme: light;
   }
 
   *{box-sizing:border-box}
@@ -112,7 +71,6 @@
     text-transform:uppercase;
     color:var(--orchid);
   }
-  :root[data-theme="dark"] .eyebrow, @media (prefers-color-scheme:dark){ .eyebrow{color:var(--orchid)} }
 
   section{padding-block:clamp(52px,8vw,96px)}
   .alt{background:var(--paper-alt)}
@@ -144,8 +102,6 @@
     font-weight:700;color:var(--orchid-deep);text-decoration:none;
     font-size:.96rem;
   }
-  :root[data-theme="dark"] .link-arrow{color:var(--orchid)}
-  @media (prefers-color-scheme:dark){ .link-arrow{color:var(--orchid)} }
   .link-arrow svg{transition:transform .15s ease}
   .link-arrow:hover svg{transform:translateX(3px)}
 
@@ -189,30 +145,24 @@
   }
   .chip svg{color:var(--jade);flex:none}
 
-  .hero-photo-wrap{position:relative;justify-self:center;width:100%;max-width:420px;padding-top:8%}
+  .hero-photo-wrap{position:relative;justify-self:center;width:100%;max-width:440px;padding-bottom:8%}
+  .hero-duo{display:flex;gap:14px;align-items:flex-start}
   .hero-photo{
-    width:100%;aspect-ratio:1/1.06;object-fit:cover;object-position:top center;
-    border-radius:63% 37% 54% 46% / 46% 40% 60% 54%;
+    flex:1 1 0;min-width:0;
+    width:100%;aspect-ratio:1/1.18;object-fit:cover;object-position:top center;
     box-shadow:var(--shadow);
     border:6px solid var(--card);
   }
-  .hero-photo-secondary{
-    position:absolute;top:-8%;right:-9%;z-index:3;
-    width:46%;aspect-ratio:1/1.1;object-fit:cover;object-position:top center;
-    border-radius:38% 62% 58% 42% / 58% 44% 56% 42%;
-    box-shadow:var(--shadow);
-    border:5px solid var(--card);
-    transform:rotate(4deg);
-  }
-  @media (max-width:480px){ .hero-photo-secondary{right:-2%;top:-6%;width:42%} }
+  .hero-photo-a{border-radius:63% 37% 54% 46% / 46% 40% 60% 54%}
+  .hero-photo-b{border-radius:38% 62% 58% 42% / 58% 44% 56% 42%}
   .hero-photo-tag{
-    position:absolute;left:-10px;bottom:14px;z-index:2;
+    position:absolute;left:8px;bottom:-6%;z-index:2;
     background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-sm);
     border-radius:16px;padding:12px 16px;max-width:220px;
   }
   .hero-photo-tag strong{display:block;font-family:"Fraunces",serif;font-size:1.4rem;color:var(--orchid)}
   .hero-photo-tag span{font-size:.78rem;color:var(--ink-soft);font-weight:600}
-  @media (max-width:480px){ .hero-photo-tag{left:0} }
+  @media (max-width:480px){ .hero-photo-tag{left:0;bottom:-8%} }
 
   /* ---------- proof strip ---------- */
   .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -221,8 +171,6 @@
   .proof-item{display:flex;flex-direction:column;gap:2px}
   @media (max-width:640px){ .proof-item{flex-direction:row;align-items:baseline;gap:10px} }
   .proof-num{font-family:"Fraunces",serif;font-weight:600;font-size:2.1rem;color:var(--orchid-deep)}
-  :root[data-theme="dark"] .proof-num{color:var(--orchid)}
-  @media (prefers-color-scheme:dark){ .proof-num{color:var(--orchid)} }
   .proof-label{font-size:.86rem;color:var(--ink-soft);font-weight:600}
 
   /* ---------- section headers ---------- */
@@ -258,8 +206,6 @@
   }
   .svc:nth-child(odd) .svc-icon{background:var(--orchid-soft);color:var(--orchid-deep)}
   .svc:nth-child(even) .svc-icon{background:var(--jade-soft);color:var(--jade)}
-  :root[data-theme="dark"] .svc:nth-child(odd) .svc-icon{color:var(--orchid)}
-  @media (prefers-color-scheme:dark){ .svc:nth-child(odd) .svc-icon{color:var(--orchid)} }
   .svc h3{font-family:"Fraunces",serif;font-size:1.22rem;font-weight:600}
   .svc p{color:var(--ink-soft);font-size:.92rem;flex:1}
 
@@ -297,8 +243,6 @@
   .founder-body{padding:22px 22px}
   .founder-body h3{font-family:"Fraunces",serif;font-size:1.28rem;font-weight:600}
   .founder-role{color:var(--orchid-deep);font-weight:700;font-size:.82rem;margin-top:4px;display:block}
-  :root[data-theme="dark"] .founder-role{color:var(--orchid)}
-  @media (prefers-color-scheme:dark){ .founder-role{color:var(--orchid)} }
   .founder-body p.bio{margin-top:10px;color:var(--ink-soft);font-size:.9rem}
   .founder-crp{margin-top:12px;font-size:.76rem;color:var(--ink-faint);font-weight:700;letter-spacing:.02em}
 
@@ -362,8 +306,6 @@
 
   /* ---------- footer ---------- */
   footer{background:var(--ink);color:#E9DEEA;padding-block:48px 28px}
-  :root[data-theme="dark"] footer{background:#120C15}
-  @media (prefers-color-scheme:dark){ footer{background:#120C15} }
   .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
   @media (max-width:760px){ .foot-grid{grid-template-columns:1fr;gap:28px} }
   .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
@@ -459,8 +401,10 @@
         </div>
       </div>
       <div class="hero-photo-wrap rise" style="animation-delay:.08s">
-        <img class="hero-photo" src="assets/jessica.jpg" alt="Jéssica Rodrigues, psicóloga e responsável técnica do Instituto Tucuruvi">
-        <img class="hero-photo-secondary" src="assets/priscila-infantil.jpg" alt="Priscila Teixeira, psicóloga especialista em terapia infantil do Instituto Tucuruvi">
+        <div class="hero-duo">
+          <img class="hero-photo hero-photo-a" src="assets/jessica.jpg" alt="Jéssica Rodrigues, psicóloga e responsável técnica do Instituto Tucuruvi">
+          <img class="hero-photo hero-photo-b" src="assets/priscila-infantil.jpg" alt="Priscila Teixeira, psicóloga especialista em terapia infantil do Instituto Tucuruvi">
+        </div>
         <div class="hero-photo-tag">
           <strong>7+ anos</strong>
           <span>cuidando de famílias de Tucuruvi e região</span>
@@ -612,7 +556,7 @@
           </div>
         </div>
         <div class="founder">
-          <img class="founder-photo" src="assets/priscila.jpg" alt="Priscila Teixeira">
+          <img class="founder-photo" src="assets/priscila-infantil.jpg" alt="Priscila Teixeira">
           <div class="founder-body">
             <h3>Priscila Teixeira</h3>
             <span class="founder-role">Psicóloga clínica</span>
